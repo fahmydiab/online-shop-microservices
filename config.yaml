@@ -22,7 +22,15 @@ spec:
           env:
             - name: PORT
               value: "8080"
-
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -62,7 +70,15 @@ spec:
               value: "8080"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
               value: "productcatalogservice:3550"
-
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -100,6 +116,15 @@ spec:
           env:
             - name: PORT
               value: "3550"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -137,6 +162,15 @@ spec:
           env:
             - name: PORT
               value: "50051"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -174,6 +208,15 @@ spec:
           env:
             - name: PORT
               value: "7000"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -211,6 +254,15 @@ spec:
           env:
             - name: PORT
               value: "50051"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -248,6 +300,15 @@ spec:
           env:
             - name: PORT
               value: "9555"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -287,6 +348,15 @@ spec:
               value: "7070"
             - name: REDIS_ADDR
               value: "redis-cart:6379"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -376,6 +446,15 @@ spec:
               value: "currencyservice:7000"
             - name: CART_SERVICE_ADDR
               value: "cartservice:7070"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
@@ -425,6 +504,15 @@ spec:
               value: "currencyservice:7000"
             - name: CART_SERVICE_ADDR
               value: "cartservice:7070"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: architecture
+                    operator: In
+                    values:
+                      - arm64
 ---
 apiVersion: v1
 kind: Service
