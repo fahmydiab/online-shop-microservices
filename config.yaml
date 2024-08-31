@@ -15,14 +15,14 @@ spec:
         app: emailservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/emailservice
-        ports:
-        - containerPort: 8080
-        env:
-        - name: PORT
-          value: "8080"
-     
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/emailservice
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+
 ---
 apiVersion: v1
 kind: Service
@@ -32,11 +32,11 @@ spec:
   selector:
     app: emailservice
   ports:
-  - protocol: TCP
-    port: 5000
-    targetPort: 8080
-    type: ClusterIP
-    ---
+    - protocol: TCP
+      port: 5000
+      targetPort: 8080
+  type: ClusterIP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -53,16 +53,16 @@ spec:
         app: recommendationservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/recommendationservice
-        ports:
-        - containerPort: 8080
-        env:
-        - name: PORT
-          value: "8080"
-        - name: PRODUCT_CATALOG_SERVICE_ADDR
-          value: "productcatalogservice:3550"
-          
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/recommendationservice
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:3550"
+
 ---
 apiVersion: v1
 kind: Service
@@ -72,10 +72,10 @@ spec:
   selector:
     app: recommendationservice
   ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
-    type: ClusterIP
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -93,13 +93,13 @@ spec:
         app: productcatalogservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/productcatalogservice
-        ports:
-        - containerPort: 3550
-        env:
-        - name: PORT
-          value: "3550"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/productcatalogservice
+          ports:
+            - containerPort: 3550
+          env:
+            - name: PORT
+              value: "3550"
 ---
 apiVersion: v1
 kind: Service
@@ -109,10 +109,10 @@ spec:
   selector:
     app: productcatalogservice
   ports:
-  - protocol: TCP
-    port: 3550
-    targetPort: 3550
-    type: ClusterIP
+    - protocol: TCP
+      port: 3550
+      targetPort: 3550
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -130,13 +130,13 @@ spec:
         app: paymentservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/paymentservice
-        ports:
-        - containerPort: 50051
-        env:
-        - name: PORT
-          value: "50051"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/paymentservice
+          ports:
+            - containerPort: 50051
+          env:
+            - name: PORT
+              value: "50051"
 ---
 apiVersion: v1
 kind: Service
@@ -146,10 +146,10 @@ spec:
   selector:
     app: paymentservice
   ports:
-  - protocol: TCP
-    port: 50051
-    targetPort: 50051
-    type: ClusterIP
+    - protocol: TCP
+      port: 50051
+      targetPort: 50051
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -167,13 +167,13 @@ spec:
         app: currencyservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/currencyservice
-        ports:
-        - containerPort: 7000
-        env:
-        - name: PORT
-          value: "7000"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/currencyservice
+          ports:
+            - containerPort: 7000
+          env:
+            - name: PORT
+              value: "7000"
 ---
 apiVersion: v1
 kind: Service
@@ -183,10 +183,10 @@ spec:
   selector:
     app: currencyservice
   ports:
-  - protocol: TCP
-    port: 7000
-    targetPort: 7000
-    type: ClusterIP
+    - protocol: TCP
+      port: 7000
+      targetPort: 7000
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -204,13 +204,13 @@ spec:
         app: shippingservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/shippingservice
-        ports:
-        - containerPort: 50051
-        env:
-        - name: PORT
-          value: "50051"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/shippingservice
+          ports:
+            - containerPort: 50051
+          env:
+            - name: PORT
+              value: "50051"
 ---
 apiVersion: v1
 kind: Service
@@ -220,10 +220,10 @@ spec:
   selector:
     app: shippingservice
   ports:
-  - protocol: TCP
-    port: 50051
-    targetPort: 50051
-    type: ClusterIP
+    - protocol: TCP
+      port: 50051
+      targetPort: 50051
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -241,13 +241,13 @@ spec:
         app: adservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/adservice
-        ports:
-        - containerPort: 9555
-        env:
-        - name: PORT
-          value: "9555"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/adservice
+          ports:
+            - containerPort: 9555
+          env:
+            - name: PORT
+              value: "9555"
 ---
 apiVersion: v1
 kind: Service
@@ -257,10 +257,10 @@ spec:
   selector:
     app: adservice
   ports:
-  - protocol: TCP
-    port: 9555
-    targetPort: 9555
-    type: ClusterIP
+    - protocol: TCP
+      port: 9555
+      targetPort: 9555
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -278,15 +278,15 @@ spec:
         app: cartservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/cartservice
-        ports:
-        - containerPort: 7070
-        env:
-        - name: PORT
-          value: "7070"
-        - name: REDIS_ADDR
-          value: "redis-cart:6379"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/cartservice
+          ports:
+            - containerPort: 7070
+          env:
+            - name: PORT
+              value: "7070"
+            - name: REDIS_ADDR
+              value: "redis-cart:6379"
 ---
 apiVersion: v1
 kind: Service
@@ -296,10 +296,10 @@ spec:
   selector:
     app: cartservice
   ports:
-  - protocol: TCP
-    port: 7070
-    targetPort: 7070
-    type: ClusterIP
+    - protocol: TCP
+      port: 7070
+      targetPort: 7070
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -317,16 +317,16 @@ spec:
         app: redis-cart
     spec:
       containers:
-      - name: redis
-        image: redis:alpine
-        ports:
-        - containerPort: 6379
-        volumeMounts:
-        - name: redis-data
-          mountPath: /data
+        - name: redis
+          image: redis:alpine
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
       volumes:
-      - name: redis-data
-        emptyDir: {}
+        - name: redis-data
+          emptyDir: { }
 ---
 apiVersion: v1
 kind: Service
@@ -336,10 +336,10 @@ spec:
   selector:
     app: redis-cart
   ports:
-  - protocol: TCP
-    port: 6379
-    targetPort: 6379
-    type: ClusterIP
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -357,25 +357,25 @@ spec:
         app: checkoutservice
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/checkoutservice
-        ports:
-        - containerPort: 5050
-        env:
-        - name: PORT
-          value: "5050"
-        - name: PRODUCT_CATALOG_SERVICE_ADDR
-          value: "productcatalogservice:3550"
-        - name: SHIPPING_SERVICE_ADDR
-          value: "shippingservice:50051"
-        - name: PAYMENT_SERVICE_ADDR
-          value: "paymentservice:50051"
-        - name: EMAIL_SERVICE_ADDR
-          value: "emailservice:5000"
-        - name: CURRENCY_SERVICE_ADDR
-          value: "currencyservice:7000"
-        - name: CART_SERVICE_ADDR
-          value: "cartservice:7070"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/checkoutservice
+          ports:
+            - containerPort: 5050
+          env:
+            - name: PORT
+              value: "5050"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:3550"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shippingservice:50051"
+            - name: PAYMENT_SERVICE_ADDR
+              value: "paymentservice:50051"
+            - name: EMAIL_SERVICE_ADDR
+              value: "emailservice:5000"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currencyservice:7000"
+            - name: CART_SERVICE_ADDR
+              value: "cartservice:7070"
 ---
 apiVersion: v1
 kind: Service
@@ -385,11 +385,11 @@ spec:
   selector:
     app: checkoutservice
   ports:
-  - protocol: TCP
-    port: 5050
-    targetPort: 5050
-    type: ClusterIP
-    ---
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
+  type: ClusterIP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -406,25 +406,25 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: service
-        image: gcr.io/google-samples/microservices-demo/frontend
-        ports:
-        - containerPort: 8080
-        env:
-        - name: PORT
-          value: "8080"
-        - name: PRODUCT_CATALOG_SERVICE_ADDR
-          value: "productcatalogservice:3550"
-        - name: SHIPPING_SERVICE_ADDR
-          value: "shippingservice:50051"
-        - name: PAYMENT_SERVICE_ADDR
-          value: "paymentservice:50051"
-        - name: EMAIL_SERVICE_ADDR
-          value: "emailservice:5000"
-        - name: CURRENCY_SERVICE_ADDR
-          value: "currencyservice:7000"
-        - name: CART_SERVICE_ADDR
-          value: "cartservice:7070"
+        - name: service
+          image: gcr.io/google-samples/microservices-demo/frontend
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:3550"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shippingservice:50051"
+            - name: PAYMENT_SERVICE_ADDR
+              value: "paymentservice:50051"
+            - name: EMAIL_SERVICE_ADDR
+              value: "emailservice:5000"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currencyservice:7000"
+            - name: CART_SERVICE_ADDR
+              value: "cartservice:7070"
 ---
 apiVersion: v1
 kind: Service
@@ -433,9 +433,9 @@ metadata:
 spec:
   selector:
     app: frontend
+  type: NodePort
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
-    type: NodePort
-    nodePort: 30007
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30007
