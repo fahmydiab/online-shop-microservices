@@ -1,0 +1,14 @@
+appName: currencyservice
+appVersion: gcr.io/google-samples/microservices-demo/currencyservice
+appImage: v.0.2.3
+appReplicas: 2
+containerPort: 8080
+containerEnvVars:
+  - key: PORT
+    value: "8080"
+  - key: DISABLE_TRACING
+    value: "1"
+  - key: DISABLE_PROFILER
+    value: "1"
+
+servicePort: 5000
